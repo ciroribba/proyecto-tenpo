@@ -1,12 +1,12 @@
 import { ReactNode } from 'react';
 import { HomeFilled, UnorderedListOutlined } from '@ant-design/icons';
-import { Layout, Menu, theme, Modal } from 'antd';
-import { useAuth } from '../../context/useAuth';
+import { Layout, Menu, theme } from 'antd';
 import { ROUTES } from '../../config/routes';
 import { useNavigate } from 'react-router-dom';
 import { JSX } from 'react/jsx-runtime';
+import LayoutHeader from '../../components/LayoutHeader';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 
 interface MasterPageProps {
   children: ReactNode;
@@ -31,29 +31,12 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
       token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
   
-    const { logout } = useAuth();
     const navigate = useNavigate();
-  
-    const [modal, contextHolder] = Modal.useModal();
-  
-    const handleLogout = () => {
-      modal.confirm({
-        title: '¿Estás seguro que deseas cerrar sesión?',
-        content: 'Se cerrará tu sesión actual',
-        okText: 'Sí',
-        cancelText: 'No',
-        onOk: () => {
-          logout();
-          navigate(ROUTES.LOGIN);
-        },
-      });
-    };
   
     const handleMenuClick = ({ key }: { key: string }) => {
       navigate(key);
     };
-  
-  
+   
     return (
       <Layout>
         <Sider
@@ -70,9 +53,7 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={itemsMenu} onClick={handleMenuClick} />
         </Sider>
         <Layout>
-          <Header style={{ padding: 0, background: colorBgContainer }}>
-            <span onClick={handleLogout}>TENPO - N A S A</span>
-            </Header>
+          <LayoutHeader />
           <Content style={{ margin: '24px 16px 0' }}>
             <div
               style={{
@@ -89,7 +70,6 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
             Demo ©{new Date().getFullYear()} Created by Ciro Ribba
           </Footer>
         </Layout>
-        {contextHolder}
       </Layout>
     );
   };
