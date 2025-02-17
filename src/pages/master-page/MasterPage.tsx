@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react';
-import { HomeFilled, UnorderedListOutlined } from '@ant-design/icons';
+import { HomeFilled, UnorderedListOutlined, TableOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 import { ROUTES } from '../../config/routes';
 import { useNavigate } from 'react-router-dom';
@@ -22,7 +22,7 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
   
   const itemsMenu = [
     getItem('Home', ROUTES.HOME, <HomeFilled />),
-    getItem('Personajes de Disney', ROUTES.TABLE_CHARACTERS, <UnorderedListOutlined />),
+    getItem('Personajes de Disney', ROUTES.TABLE_CHARACTERS, <TableOutlined />),
     getItem('Lista de usuarios', ROUTES.LIST_USERS, <UnorderedListOutlined />),
   ];
 
@@ -30,6 +30,7 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
     const {
       token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [collapsed, setCollapsed] = useState(false);
 
   
@@ -61,7 +62,7 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
         </Sider>
         <Layout>
           <LayoutHeader />
-          <Content style={{ margin: '24px 16px 0', display: !collapsed ? 'none' : 'block'}}>
+          <Content style={{ margin: '24px 16px 0'}}>
             <div
               style={{
                 padding: 24,

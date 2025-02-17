@@ -1,0 +1,13 @@
+.avatar-container {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .avatar-image {
+    transition: transform 0.3s ease;
+  }
+  
+  .avatar-container:hover .avatar-image {
+    transform: scale(2); /* Ajusta el valor según el tamaño deseado */
+    z-index: 10;
+  }
