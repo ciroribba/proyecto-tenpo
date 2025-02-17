@@ -1,5 +1,5 @@
-import axios from 'axios';
 import { useCharacterStore } from './charactersStore';
+import { fetchCharacters as fetchCharactersService } from '../services/characterService';
 
 export const fetchCharacters = async () => {
   const { setCharacters, setLoading, setError } = useCharacterStore.getState();
@@ -8,13 +8,8 @@ export const fetchCharacters = async () => {
   setError(null);
 
   try {
-    // Simulamos una llamada a una API ficticia
-    const response = await axios.get('https://api.disneyapi.dev/character?pageSize=2000');
-    if (!response.data) throw new Error('Error al obtener usuarios');
-    
-    const dataCharacters = await response.data.data;
+    const dataCharacters = await fetchCharactersService();
     setCharacters(dataCharacters);
-
   } catch (error) {
     setError((error as Error).message);
   } finally {

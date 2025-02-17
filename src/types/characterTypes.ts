@@ -18,7 +18,6 @@ export interface Info {
     enemies: string[];
     sourceUrl: string;
     name: string;
-    // Algunos personajes pueden no tener imageUrl
     imageUrl?: string;
     createdAt: string;
     updatedAt: string;
