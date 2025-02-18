@@ -63,7 +63,7 @@ const ListUsers: React.FC = () => {
               title={<>{item.name.last}</>}
               description={isMobile ? null : item.email}
             />
-            <Space direction="vertical" style={isMobile ? { textAlign: 'left' }: { textAlign: 'right' }}>
+            <Space direction="vertical" className={ isMobile ? 'text-left mr-12' : 'text-right mr-12'}>
              {isMobile ? <div>{`Email: ${item.email}`}</div> : null}
               <div>{`Pais de origen: ${item.location.country}`}</div>
               <div>{`Fecha de nacimiento: ${formatDate(item.dob.date)}`}</div>
