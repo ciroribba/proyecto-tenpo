@@ -22,8 +22,8 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
   
   const itemsMenu = [
     getItem('Home', ROUTES.HOME, <HomeFilled />),
-    getItem('Personajes de Disney', ROUTES.TABLE_CHARACTERS, <TableOutlined />),
-    getItem('Lista de usuarios', ROUTES.LIST_USERS, <UnorderedListOutlined />),
+    getItem('Personajes', ROUTES.TABLE_CHARACTERS, <TableOutlined />),
+    getItem('Usuarios', ROUTES.LIST_USERS, <UnorderedListOutlined />),
   ];
 
   const MasterPage = ({ children }: MasterPageProps) => {
@@ -61,6 +61,7 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
                 height: `calc(100vh - 155px)`,
                 background: colorBgContainer,
                 borderRadius: borderRadiusLG,
+                overflowY: 'auto',
               }}
             >
               {children}
