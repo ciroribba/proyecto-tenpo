@@ -32,7 +32,7 @@ const columns: TableColumnsType<Character> = [
     dataIndex: 'sourceUrl',
     width: 150,
     key: 'link',
-    render: (sourceUrl: string) => <a href={sourceUrl} target='_blank' rel='noopener noreferrer'>Link Externo</a>,
+    render: (sourceUrl: string) => <a href={sourceUrl} target='_blank' rel='noopener noreferrer'>Fandom Page</a>,
   },
 ];
 

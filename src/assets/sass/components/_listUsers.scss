@@ -1,0 +1,9 @@
+.user-details {
+    display: block;
+  }
+  
+  @media (max-width: 768px) {
+    .user-details {
+      display: none;
+    }
+  }
