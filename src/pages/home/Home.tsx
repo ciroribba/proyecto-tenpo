@@ -77,7 +77,7 @@ const Home = () => {
           </Descriptions.Item>
         </Descriptions>
       </Card>
-      <Divider style={{ marginTop: 16, marginBottom: 16, borderColor: '#1890ff' }}>Sobre la API de USERS</Divider>
+      <Divider style={{ marginTop: 16, marginBottom: 16, borderColor: '#1890ff' }}>Sobre la API de Usuarios</Divider>
       <Card className="mt-12">
         <Descriptions column={1} bordered>
           <Descriptions.Item label="URL">

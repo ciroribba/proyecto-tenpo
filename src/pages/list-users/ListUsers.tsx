@@ -44,7 +44,7 @@ const ListUsers: React.FC = () => {
 
   return (
     <>
-    <TitleContent title='Lista de usuarios fake' />
+    <TitleContent title='Lista de usuarios fake (scroll infinito)' />
     <Spin spinning={loading}>
       <List
       itemLayout={isMobile ? 'vertical' : 'horizontal' }

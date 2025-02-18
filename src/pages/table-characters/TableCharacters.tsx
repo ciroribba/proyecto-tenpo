@@ -41,14 +41,14 @@ const TableCharacters = () => {
   const { characters, loading, error } = useCharacterStore();
 
   useEffect(() => {
-    fetchCharacters(100);
+    fetchCharacters(2000);
   }, []);
 
   if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
-      <TitleContent title='Personajes del universo Disney' />
+      <TitleContent title='Personajes del universo Disney (2000 registros)' />
       <Spin spinning={loading}>
       <Table
         columns={columns}
