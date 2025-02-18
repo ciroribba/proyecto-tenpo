@@ -66,6 +66,34 @@ La aplicación utiliza una arquitectura moderna con React y está organizada de 
 - `/src/styles` - Estilos SASS
 - `/src/types` - Definiciones de tipos TypeScript
 
+## Funcionalidades Principales
+
+El proyecto cuenta con dos páginas principales:
+
+### 1. Tabla de Personajes Disney
+- Muestra una tabla interactiva con personajes del universo Disney
+- Incluye avatar, nombre, película y enlace a Fandom Page
+- Implementa paginación y búsqueda
+- Utiliza la API de Disney para obtener los datos
+
+### 2. Lista de Usuarios
+- Presenta una lista virtualizada de usuarios
+- Muestra información detallada: avatar, nombre, email, país, fecha de nacimiento y edad
+- Diseño responsive que se adapta a dispositivos móviles y desktop
+- Utiliza datos de prueba de la API Random User
+
+## APIs Utilizadas
+
+### Disney API
+- **URL**: `https://api.disneyapi.dev/character`
+- **Descripción**: API que proporciona información detallada sobre personajes de Disney, incluyendo nombres, imágenes y películas asociadas.
+- **Uso**: Se utiliza para poblar la tabla de personajes con datos reales del universo Disney.
+
+### Random User API
+- **URL**: `https://randomuser.me/api/`
+- **Descripción**: Genera datos de usuarios aleatorios para pruebas, incluyendo información como nombre, género, fecha de nacimiento, ubicación, email y avatar.
+- **Uso**: Se utiliza para crear una lista de usuarios de prueba con datos realistas.
+
 ## Consideraciones Adicionales
 
 - La aplicación utiliza React 19 con las últimas características disponibles
