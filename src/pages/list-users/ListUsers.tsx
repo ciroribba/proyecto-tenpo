@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, List, message, Space, Spin } from 'antd';
+import { Avatar, List, message, Space, Spin, Card, Descriptions, Divider } from 'antd';
 import VirtualList from 'rc-virtual-list';
 import axios from 'axios';
 import TitleContent  from '../../components/TitleContent';
@@ -74,7 +74,23 @@ const ListUsers: React.FC = () => {
       </VirtualList>
     </List>
     </Spin>
-    
+    <Divider style={{marginTop: 16, marginBottom: 16, borderColor: '#1890ff'}}>Sobre la API</Divider>
+    <Card className="mt-12">
+        <Descriptions column={1} bordered>
+          <Descriptions.Item label="URL">
+            <a
+              href="https://api.disneyapi.dev/character"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://api.disneyapi.dev/character
+            </a>
+          </Descriptions.Item>
+          <Descriptions.Item label="Descripción">
+            Devuelve una lista de personajes de Disney con detalles relevantes como nombre, imagen y películas. La API se utiliza para mostrar perfiles de personajes en una tabla interactiva, facilitando la exploración de datos del universo Disney.
+          </Descriptions.Item>
+        </Descriptions>
+      </Card>
     </>
   );
 };

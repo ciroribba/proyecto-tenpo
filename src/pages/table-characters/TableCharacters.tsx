@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Table, Avatar, Spin } from 'antd';
+import { Table, Avatar, Spin, Card, Descriptions, Divider } from 'antd';
 import type { TableColumnsType } from 'antd';
 import TitleContent  from '../../components/TitleContent';
 import { fetchCharacters } from '../../stores/charactersActions';
@@ -57,6 +57,24 @@ const TableCharacters = () => {
         scroll={{ y: 55 * 8 }}
       />
       </Spin>
+      <Divider style={{marginTop: 16, marginBottom: 16, borderColor: '#1890ff'}}>Sobre la API</Divider>
+      <Card  className="mt-12">
+        <Descriptions column={1} bordered>
+          <Descriptions.Item label="URL">
+            <a
+              href="https://randomuser.me/api/?results=2000&inc=name,gender,dob,location,email,nat,picture&noinfo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://randomuser.me/api/?results=2000&inc=name,gender,dob,location,email,nat,picture&noinfo
+            </a>
+          </Descriptions.Item>
+          <Descriptions.Item label="Descripción">
+            Proporciona datos de usuarios aleatorios para pruebas y prototipos. La solicitud retorna 20 usuarios y solo incluye campos específicos (nombre, género, fecha de nacimiento, ubicación, correo electrónico,
+            nacionalidad e imagen). Se utiliza en el proyecto para poblar listas de usuarios con datos falsos.
+          </Descriptions.Item>
+        </Descriptions>
+      </Card>
   </div>
   )
 }
