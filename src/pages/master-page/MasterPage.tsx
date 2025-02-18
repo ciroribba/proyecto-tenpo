@@ -44,7 +44,7 @@ const MasterPage = ({ children }: MasterPageProps) => {
               {children}
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>
+          <Footer className='text-center'>
             Demo ©{new Date().getFullYear()} Created by Ciro Ribba
           </Footer>
         </Layout>
