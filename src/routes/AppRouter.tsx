@@ -10,7 +10,7 @@ const AppRouter = () => {
     <BrowserRouter>
       <RequestInterceptor>
         <Routes>
-          {/* Ruta base redirige al dashboard si está autenticado, o al login si no */}
+          {/* Ruta base redirige al home si está autenticado, o al login si no */}
           <Route
             path={ROUTES.BASE}
             element={<Navigate to={ROUTES.HOME} replace />}
