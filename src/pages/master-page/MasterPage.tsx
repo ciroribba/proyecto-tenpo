@@ -1,10 +1,7 @@
 import { ReactNode } from 'react';
-import { HomeFilled, UnorderedListOutlined, TableOutlined } from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
-import { ROUTES } from '../../config/routes';
-import { useNavigate } from 'react-router-dom';
-import { JSX } from 'react/jsx-runtime';
+import { Layout, theme } from 'antd';
 import LayoutHeader from '../../components/LayoutHeader';
+import { CustomMenu } from '../../components/CustomMenu';
 
 const { Content, Footer, Sider } = Layout;
 
@@ -12,31 +9,11 @@ interface MasterPageProps {
   children: ReactNode;
 }
 
-const getItem = (label: string, key: string, icon: JSX.Element) => {
-    return {
-      key,
-      icon,
-      label,
-    };
-  };
-  
-  const itemsMenu = [
-    getItem('Home', ROUTES.HOME, <HomeFilled />),
-    getItem('Personajes', ROUTES.TABLE_CHARACTERS, <TableOutlined />),
-    getItem('Usuarios', ROUTES.LIST_USERS, <UnorderedListOutlined />),
-  ];
+const MasterPage = ({ children }: MasterPageProps) => {
+  const {
+    token: { colorBgContainer, borderRadiusLG },
+  } = theme.useToken();
 
-  const MasterPage = ({ children }: MasterPageProps) => {
-    const {
-      token: { colorBgContainer, borderRadiusLG },
-    } = theme.useToken();
-
-    const navigate = useNavigate();
-  
-    const handleMenuClick = ({ key }: { key: string }) => {
-      navigate(key);
-    };
-   
     return (
       <Layout>
         <Sider
@@ -50,7 +27,7 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
           }}
         >
           <div className="demo-logo-vertical" />
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} items={itemsMenu} onClick={handleMenuClick} />
+          <CustomMenu />
         </Sider>
         <Layout>
           <LayoutHeader />
