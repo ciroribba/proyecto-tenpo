@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { fetchCharacters } from '../../stores/charactersActions';
-import { useCharacterStore } from '../../stores/charactersStore';
 import { Table, Avatar } from 'antd';
 import type { TableColumnsType } from 'antd';
+import TitleContent  from '../../components/TitleContent';
+import { fetchCharacters } from '../../stores/charactersActions';
+import { useCharacterStore } from '../../stores/charactersStore';
 import { Character } from '../../types/characterTypes';
 
 const columns: TableColumnsType<Character> = [
@@ -40,18 +41,15 @@ const TableCharacters = () => {
   const { characters, loading, error } = useCharacterStore();
 
   useEffect(() => {
-    fetchCharacters();
+    fetchCharacters(20);
   }, []);
-
-  useEffect(() => {
-    console.log(characters);
-  }, [characters]);
 
   if (loading) return <p>Cargando usuarios...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
+      <TitleContent title='Personajes del universo Disney' />
       <Table
         columns={columns}
         dataSource={characters}

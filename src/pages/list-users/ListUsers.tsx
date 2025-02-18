@@ -1,44 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, List, message, Space } from 'antd';
 import VirtualList from 'rc-virtual-list';
-import { useMediaQuery } from 'react-responsive';
 import axios from 'axios';
+import TitleContent  from '../../components/TitleContent';
+import { formatDate, useIsMobile } from '../../utils/utils';
+import { UserItem } from '../../types/listUserTypes';
+import { ENDPOINT } from '../../config/endpoints';
 
-interface UserItem {
-  email: string;
-  gender: string;
-  name: {
-    first: string;
-    last: string;
-    title: string;
-  };
-  location: {
-    country: string;
-  };
-  dob: {
-        date: string;
-        age: number;
-      },
-  nat: string;
-  picture: {
-    large: string;
-    medium: string;
-    thumbnail: string;
-  };
-}
-
-const fakeDataUrl =
-  'https://randomuser.me/api/?results=20&inc=name,gender,dob,location,email,nat,picture&noinfo';
 const ContainerHeight = 400;
 
 const ListUsers: React.FC = () => {
   const [data, setData] = useState<UserItem[]>([]);
 
-  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const isMobile = useIsMobile();
 
   const appendData = async (showMessage = true) => {
     try {
-      const response = await axios.get(fakeDataUrl);
+      const response = await axios.get(ENDPOINT.FAKE_DATA_LIST);
       const body = response.data;
       setData(data.concat(body.results));
       if (showMessage) {
@@ -62,6 +40,8 @@ const ListUsers: React.FC = () => {
   };
 
   return (
+    <>
+    <TitleContent title='Lista de usuarios fake' />
     <List
       itemLayout={isMobile ? 'vertical' : 'horizontal' }
     >
@@ -82,13 +62,14 @@ const ListUsers: React.FC = () => {
             <Space direction="vertical" style={isMobile ? { textAlign: 'left' }: { textAlign: 'right' }}>
              {isMobile ? <div>{`Email: ${item.email}`}</div> : null}
               <div>{`Pais de origen: ${item.location.country}`}</div>
-              <div>{`Fecha de nacimiento: ${new Date(item.dob.date).toLocaleDateString()}`}</div>
+              <div>{`Fecha de nacimiento: ${formatDate(item.dob.date)}`}</div>
               <div>{`Edad: ${item.dob.age}`}</div>
             </Space>
           </List.Item>
         )}
       </VirtualList>
     </List>
+    </>
   );
 };
 
