@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { Character, Info } from '../types/characterTypes';
+import { Character, Info } from '../../types/characterTypes';
 
 interface CharacterState {
   characters: Character[];

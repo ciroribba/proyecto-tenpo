@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { Table, Avatar, Spin } from 'antd';
 import type { TableColumnsType } from 'antd';
 import TitleContent  from '../../components/TitleContent';
-import { fetchCharacters } from '../../stores/charactersActions';
-import { useCharacterStore } from '../../stores/charactersStore';
+import { fetchCharacters } from '../../stores/characters/actions/charactersActions';
+import { useCharacterStore } from '../../stores/characters/charactersStore';
 import { Character } from '../../types/characterTypes';
 
 const columns: TableColumnsType<Character> = [

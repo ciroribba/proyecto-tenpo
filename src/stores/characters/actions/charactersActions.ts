@@ -1,5 +1,5 @@
-import { useCharacterStore } from './charactersStore';
-import { fetchCharacters as fetchCharactersService } from '../services/characterService';
+import { useCharacterStore } from '../charactersStore';
+import { fetchCharacters as fetchCharactersService } from '../../../services/characterService';
 
 export const fetchCharacters = async (size: number) => {
   const { setCharacters, setLoading, setError } = useCharacterStore.getState();
