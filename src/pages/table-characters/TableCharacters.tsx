@@ -53,7 +53,7 @@ const TableCharacters = () => {
       <Table
         columns={columns}
         dataSource={!loading ? characters : []}
-        rowKey='id'
+        rowKey="_id"
         scroll={{ y: 55 * 8 }}
       />
       </Spin>
