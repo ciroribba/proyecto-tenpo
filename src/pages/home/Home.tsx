@@ -6,6 +6,19 @@ const { Title, Text } = Typography;
 const Home = () => {
   return (
     <div>
+      <Card className="custom-card">
+        <Title level={5}>
+          Este proyecto utiliza dos páginas con interfaces distintas para mostrar grandes volúmenes de datos:
+        </Title>
+        <List>
+          <List.Item>
+            <Text strong>Página de Tabla de Personajes:</Text> Se ajusta a un número fijo de 2000 registros.
+          </List.Item>
+          <List.Item>
+            <Text strong>Página de Lista de Usuarios:</Text> Utiliza un scroll infinito para cargar datos on-demand.
+          </List.Item>
+        </List>
+      </Card>
       <Title level={3}>Página de Tabla de Personajes:</Title>
       <Title level={4}>Descripción General:</Title>
       <Text>
