@@ -21,11 +21,11 @@ const ListUsers: React.FC = () => {
       const body = response.data;
       setData(data.concat(body.results));
       if (showMessage) {
-        message.success(`${body.results.length} more items loaded!`);
+        message.success(`${body.results.length} registros mas cargados!`);
       }
     } catch (error) {
       console.log(error);
-      message.error('Error loading data');
+      message.error('Error al cargar datos');
     } finally {
       setLoading(false);
     }
