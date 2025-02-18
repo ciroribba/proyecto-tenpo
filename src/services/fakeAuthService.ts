@@ -22,7 +22,7 @@ export interface AuthResponse {
   ): Promise<AuthResponse> => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (email === 'admin@email.com' && password === '1234') {
+        if (email === 'admin@email.com' && password === 'Pass123!') {
           resolve({
             status: 200,
             data: {
