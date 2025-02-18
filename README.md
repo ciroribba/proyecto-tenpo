@@ -1,50 +1,84 @@
-# React + TypeScript + Vite
+# Proyecto Tenpo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una aplicación web desarrollada con React, TypeScript y Vite, utilizando Ant Design como biblioteca de componentes UI.
 
-Currently, two official plugins are available:
+## Requisitos Previos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Node.js (v18 o superior)
+- pnpm (v8 o superior)
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clona el repositorio:
+   ```bash
+   git clone <url-del-repositorio>
+   cd proyecto-tenpo
+   ```
 
-- Configure the top-level `parserOptions` property like this:
+2. Instala las dependencias usando pnpm:
+   ```bash
+   pnpm install
+   ```
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Desarrollo Local
+
+Para ejecutar el proyecto en modo desarrollo:
+
+```bash
+pnpm dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+El servidor de desarrollo se iniciará en `http://localhost:5173`
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Credenciales de Prueba
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+La autenticación es simulada (fake) para propósitos de desarrollo. Debes usar las siguientes credenciales:
+
+- **Email**: admin@email.com
+- **Password**: Pass123!
+
+## Scripts Disponibles
+
+- `pnpm dev` - Inicia el servidor de desarrollo
+- `pnpm build` - Compila el proyecto para producción
+- `pnpm preview` - Previsualiza la versión de producción localmente
+- `pnpm lint` - Ejecuta el linter para verificar el código
+
+## Tecnologías Principales
+
+- React 19
+- TypeScript
+- Vite
+- Ant Design (antd)
+- React Router DOM
+- Zustand (manejo de estado)
+- Axios (cliente HTTP)
+- SASS (estilos)
+
+## Estructura del Proyecto
+
+La aplicación utiliza una arquitectura moderna con React y está organizada de la siguiente manera:
+
+- `/src` - Código fuente principal
+- `/src/components` - Componentes reutilizables
+- `/src/pages` - Páginas/rutas de la aplicación
+- `/src/store` - Manejo de estado con Zustand
+- `/src/styles` - Estilos SASS
+- `/src/types` - Definiciones de tipos TypeScript
+
+## Consideraciones Adicionales
+
+- La aplicación utiliza React 19 con las últimas características disponibles
+- Se incluye soporte para TypeScript para un desarrollo más robusto
+- El diseño es responsive y se adapta a diferentes tamaños de pantalla
+- Se utiliza ESLint para mantener la calidad del código
+
+## Construcción para Producción
+
+Para construir el proyecto para producción:
+
+```bash
+pnpm build
 ```
+
+Los archivos compilados se encontrarán en el directorio `dist`.
