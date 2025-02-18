@@ -7,3 +7,13 @@
     align-items: center;
     background-color: #ffffff;
 }
+
+.layout-content {
+    margin: 24px 16px 0;
+}
+
+.div-content {
+    padding: 24px;
+    height: calc(100vh - 155px);
+    overflow-y: auto;
+}

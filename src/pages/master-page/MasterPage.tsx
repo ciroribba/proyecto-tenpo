@@ -31,15 +31,13 @@ const MasterPage = ({ children }: MasterPageProps) => {
         </Sider>
         <Layout>
           <LayoutHeader />
-          <Content style={{ margin: '24px 16px 0'}}>
+          <Content className='layout-content'>
             <div
-              style={{
-                padding: 24,
-                height: `calc(100vh - 155px)`,
+              style={{                
                 background: colorBgContainer,
                 borderRadius: borderRadiusLG,
-                overflowY: 'auto',
               }}
+              className='div-content'
             >
               {children}
             </div>

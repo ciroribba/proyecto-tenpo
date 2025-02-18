@@ -37,7 +37,7 @@ export const Signin = () => {
   };
 
   return (
-    <Row justify="center" style={{ margin: isMobile ? 10 : 100 }}>
+    <Row justify="center" className={isMobile ? 'm-10' : 'm-100'}>
       <Col xs={24} sm={20} md={16} lg={12} xl={8}>
         <Card hoverable title="T-Challenge">
           <Form
