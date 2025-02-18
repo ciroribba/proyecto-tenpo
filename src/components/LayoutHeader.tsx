@@ -32,7 +32,7 @@ const LayoutHeader = () => {
   return (
     <>
       <Header className="layout-header" style={{ backgroundColor: colorBgContainer }}>
-        <Text strong>TENPO</Text>
+        <Text strong>T-CHALLENGE</Text>
         <Button size='small' icon={<LogoutOutlined />} onClick={handleLogout}>Salir
         </Button>       
       </Header>

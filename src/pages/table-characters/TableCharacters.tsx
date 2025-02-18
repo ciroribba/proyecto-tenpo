@@ -41,7 +41,7 @@ const TableCharacters = () => {
   const { characters, loading, error } = useCharacterStore();
 
   useEffect(() => {
-    fetchCharacters(20);
+    fetchCharacters(100);
   }, []);
 
   if (error) return <p>Error: {error}</p>;
@@ -52,9 +52,8 @@ const TableCharacters = () => {
       <Spin spinning={loading}>
       <Table
         columns={columns}
-        dataSource={characters}
+        dataSource={!loading ? characters : []}
         rowKey='id'
-        pagination={{ pageSize: 50 }}
         scroll={{ y: 55 * 8 }}
       />
       </Spin>

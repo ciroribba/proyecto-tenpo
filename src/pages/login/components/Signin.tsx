@@ -1,7 +1,8 @@
-import { FormProps, Card, Button, Form, Input, message } from 'antd';
+import { FormProps, Card, Button, Form, Input, message, Row, Col } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../config/routes';
 import { useAuth } from '../../../context/useAuth';
+import { useIsMobile } from '../../../utils/utils';
 
 type FieldType = {
   email: string;
@@ -12,11 +13,12 @@ export const Signin = () => {
   const navigate = useNavigate();
   const { login, loading } = useAuth();
 
+  const isMobile = useIsMobile();
+
   const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
     try {
       const response = await login(values.email, values.password);
       if (response.status === 200) {
-        message.success('Login exitoso');
         navigate(ROUTES.HOME);
       }
     } catch (error: unknown) {
@@ -28,56 +30,54 @@ export const Signin = () => {
       console.error('Error en login:', error);
     }
   };
-  
+
   const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = (errorInfo) => {
     message.error('Por favor, complete todos los campos correctamente');
     console.log('Failed:', errorInfo);
   };
 
   return (
-    <Card 
-      hoverable 
-      style={{ maxWidth: 600, margin: 'auto', marginTop: 100 }}
-    >
-      <Form
-        name="basic"
-        labelCol={{ span: 24 }}
-        wrapperCol={{ span: 24 }}
-        style={{ maxWidth: 600 }}
-        initialValues={{ remember: true }}
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-        layout='vertical'
-      >
-        <Form.Item<FieldType>
-          label="Email"
-          name="email"
-          rules={[{ type: 'email' },{ required: true, message: 'Please input your username!' }]}
-        >
-          <Input />
-        </Form.Item>
-
-        <Form.Item<FieldType>
-          label="Password"
-          name="password"
-          rules={[{ required: true, message: 'Please input your password!' }]}
-          validateTrigger="onBlur"
-        >
-          <Input.Password />
-        </Form.Item>
-
-        <Form.Item label={null}>
-          <Button 
-            type="primary" 
-            htmlType="submit" 
-            loading={loading}
-            block
+    <Row justify="center" style={{ margin: isMobile ? 10 : 100 }}>
+      <Col xs={24} sm={20} md={16} lg={12} xl={8}>
+        <Card hoverable title="T-Challenge">
+          <Form
+            name="basic"
+            labelCol={{ span: 24 }}
+            wrapperCol={{ span: 24 }}
+            initialValues={{ remember: true }}
+            onFinish={onFinish}
+            onFinishFailed={onFinishFailed}
+            autoComplete="off"
+            layout='vertical'
           >
-            {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
-          </Button>
-        </Form.Item>
-      </Form>
-    </Card>
+            <Form.Item<FieldType>
+              label="Email"
+              name="email"
+              rules={[{ type: 'email' }, { required: true, message: 'Por favor ingrese correo electrónico!' }]}
+            >
+              <Input placeholder="jhon@doe.com" />
+            </Form.Item>
+
+            <Form.Item<FieldType>
+              label="Password"
+              name="password"
+              rules={[{ required: true, message: 'Por favor ingrese contraseña!' }]}
+              validateTrigger="onBlur"
+            >
+              <Input.Password placeholder="****" />
+            </Form.Item>
+
+            <Form.Item label={null}>
+              <Button
+                type="primary"
+                htmlType="submit"
+                loading={loading}
+                block
+              >
+                {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
+              </Button>
+            </Form.Item>
+          </Form>
+        </Card></Col></Row>
   );
 }
