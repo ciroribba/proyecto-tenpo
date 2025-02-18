@@ -1,5 +1,5 @@
 import { LogoutOutlined } from '@ant-design/icons';
-import { Layout, theme, Modal, Typography, Button } from "antd";
+import { Layout, Modal, Typography, Button } from "antd";
 import { useAuth } from '../context/useAuth';
 import { ROUTES } from '../config/routes';
 import { useNavigate } from 'react-router-dom';
@@ -25,13 +25,9 @@ const LayoutHeader = () => {
     });
   };
 
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-
   return (
     <>
-      <Header className="layout-header" style={{ backgroundColor: colorBgContainer }}>
+      <Header className="layout-header">
         <Text strong>T-CHALLENGE</Text>
         <Button size='small' icon={<LogoutOutlined />} onClick={handleLogout}>Salir
         </Button>       
