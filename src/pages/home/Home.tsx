@@ -1,42 +1,9 @@
-import { Typography, List} from "antd";
+import { Typography, List, Card, Divider, Descriptions } from "antd";
+import { characterFeatures, userFeatures } from "../../utils/constants";
 
-const {Title, Text} = Typography;
+const { Title, Text } = Typography;
 
 const Home = () => {
-  const characterFeatures = [
-    {
-      title: "Carga Asíncrona de Datos",
-      description: "Se utiliza un store personalizado (a través de useCharacterStore) y una acción (fetchCharacters) para obtener los datos de personajes.",
-    },
-    {
-      title: "Interfaz Reactiva",
-      description: "Uso de Spin de antd para mostrar un indicador de carga mientras se obtienen los datos.",
-    },
-    {
-      title: "Diseño Modular",
-      description: "Componentización de elementos (por ejemplo, TitleContent) para mantener una estructura limpia y reutilizable.",
-    },
-  ];
-
-  const userFeatures = [
-    {
-      title: "Scroll Infinito y Virtualización",
-      description: "Se utiliza VirtualList de rc-virtual-list para renderizar solo los elementos visibles y mejorar el rendimiento en listas grandes.",
-    },
-    {
-      title: "Llamadas HTTP con Axios",
-      description: "Implementa axios para consumir la API que provee los datos de usuarios.",
-    },
-    {
-      title: "Notificaciones",
-      description: "Uso del componente message de antd para informar al usuario cuando se cargan más datos.",
-    },
-    {
-      title: "Responsive Design",
-      description: "Uso de un hook personalizado (useIsMobile) para ajustar la disposición del contenido según el tamaño de pantalla.",
-    },
-  ];
-
   return (
     <div>
       <Title level={3}>Página de Tabla de Personajes:</Title>
@@ -93,6 +60,41 @@ const Home = () => {
           </List.Item>
         )}
       />
+      <Divider style={{ marginTop: 16, marginBottom: 16, borderColor: '#1890ff' }}>Sobre la API de Personajes</Divider>
+      <Card className="mt-12">
+        <Descriptions column={1} bordered>
+          <Descriptions.Item label="URL">
+            <a
+              href="https://api.disneyapi.dev/character"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://api.disneyapi.dev/character
+            </a>
+          </Descriptions.Item>
+          <Descriptions.Item label="Descripción">
+            Devuelve una lista de personajes de Disney con detalles relevantes como nombre, imagen y películas. La API se utiliza para mostrar perfiles de personajes en una tabla interactiva, facilitando la exploración de datos del universo Disney.
+          </Descriptions.Item>
+        </Descriptions>
+      </Card>
+      <Divider style={{ marginTop: 16, marginBottom: 16, borderColor: '#1890ff' }}>Sobre la API de USERS</Divider>
+      <Card className="mt-12">
+        <Descriptions column={1} bordered>
+          <Descriptions.Item label="URL">
+            <a
+              href="https://randomuser.me/api/?results=2000&inc=name,gender,dob,location,email,nat,picture&noinfo"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              https://randomuser.me/api/?results=2000&inc=name,gender,dob,location,email,nat,picture&noinfo
+            </a>
+          </Descriptions.Item>
+          <Descriptions.Item label="Descripción">
+            Proporciona datos de usuarios aleatorios para pruebas y prototipos. La solicitud retorna 20 usuarios y solo incluye campos específicos (nombre, género, fecha de nacimiento, ubicación, correo electrónico,
+            nacionalidad e imagen). Se utiliza en el proyecto para poblar listas de usuarios con datos falsos.
+          </Descriptions.Item>
+        </Descriptions>
+      </Card>
     </div>
   );
 }
