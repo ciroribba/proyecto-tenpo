@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Table, Avatar } from 'antd';
+import { Table, Avatar, Spin } from 'antd';
 import type { TableColumnsType } from 'antd';
 import TitleContent  from '../../components/TitleContent';
 import { fetchCharacters } from '../../stores/charactersActions';
@@ -44,12 +44,12 @@ const TableCharacters = () => {
     fetchCharacters(20);
   }, []);
 
-  if (loading) return <p>Cargando usuarios...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
       <TitleContent title='Personajes del universo Disney' />
+      <Spin spinning={loading}>
       <Table
         columns={columns}
         dataSource={characters}
@@ -57,7 +57,7 @@ const TableCharacters = () => {
         pagination={{ pageSize: 50 }}
         scroll={{ y: 55 * 8 }}
       />
-      
+      </Spin>
   </div>
   )
 }

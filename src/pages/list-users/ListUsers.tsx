@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Avatar, List, message, Space } from 'antd';
+import { Avatar, List, message, Space, Spin } from 'antd';
 import VirtualList from 'rc-virtual-list';
 import axios from 'axios';
 import TitleContent  from '../../components/TitleContent';
@@ -11,6 +11,7 @@ const ContainerHeight = 400;
 
 const ListUsers: React.FC = () => {
   const [data, setData] = useState<UserItem[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const isMobile = useIsMobile();
 
@@ -25,6 +26,8 @@ const ListUsers: React.FC = () => {
     } catch (error) {
       console.log(error);
       message.error('Error loading data');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -42,7 +45,8 @@ const ListUsers: React.FC = () => {
   return (
     <>
     <TitleContent title='Lista de usuarios fake' />
-    <List
+    <Spin spinning={loading}>
+      <List
       itemLayout={isMobile ? 'vertical' : 'horizontal' }
     >
       <VirtualList
@@ -69,6 +73,8 @@ const ListUsers: React.FC = () => {
         )}
       </VirtualList>
     </List>
+    </Spin>
+    
     </>
   );
 };
