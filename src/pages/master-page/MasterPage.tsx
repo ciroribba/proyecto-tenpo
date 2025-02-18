@@ -1,4 +1,4 @@
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import { HomeFilled, UnorderedListOutlined, TableOutlined } from '@ant-design/icons';
 import { Layout, Menu, theme } from 'antd';
 import { ROUTES } from '../../config/routes';
@@ -30,18 +30,11 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
     const {
       token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [collapsed, setCollapsed] = useState(false);
 
-  
     const navigate = useNavigate();
   
     const handleMenuClick = ({ key }: { key: string }) => {
       navigate(key);
-    };
-
-    const handleCollapse = (collapsed: boolean) => {
-      setCollapsed(collapsed);
     };
    
     return (
@@ -54,7 +47,6 @@ const getItem = (label: string, key: string, icon: JSX.Element) => {
           }}
           onCollapse={(collapsed, type) => {
             console.log(collapsed, type);
-            handleCollapse(collapsed);
           }}
         >
           <div className="demo-logo-vertical" />
