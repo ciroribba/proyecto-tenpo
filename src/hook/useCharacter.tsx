@@ -1,4 +1,4 @@
-import { useCharacterStore } from '../stores/charactersStore';
+import { useCharacterStore } from '../stores/characters/charactersStore';
 
 const useCharacters = () => {
   const users = useCharacterStore((state) => state.characters);
