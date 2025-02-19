@@ -1,4 +1,4 @@
-import { FormProps, Card, Button, Form, Input, message, Row, Col } from 'antd';
+import { FormProps, Card, Button, Form, Input, message, Row, Col, Spin } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../config/routes';
 import { useAuth } from '../../../context/useAuth';
@@ -50,23 +50,24 @@ export const Signin = () => {
             autoComplete="off"
             layout='vertical'
           >
-            <Form.Item<FieldType>
-              label="Email"
-              name="email"
-              rules={[{ type: 'email' }, { required: true, message: 'Por favor ingrese correo electrónico!' }]}
-            >
-              <Input placeholder="jhon@doe.com" />
-            </Form.Item>
+            <Spin spinning={loading}>
+              <Form.Item<FieldType>
+                label="Email"
+                name="email"
+                rules={[{ type: 'email' }, { required: true, message: 'Por favor ingrese correo electrónico!' }]}
+              >
+                <Input placeholder="jhon@doe.com" />
+              </Form.Item>
 
-            <Form.Item<FieldType>
-              label="Password"
-              name="password"
-              rules={[{ required: true, message: 'Por favor ingrese contraseña!' }]}
-              validateTrigger="onBlur"
-            >
-              <Input.Password placeholder="****" />
-            </Form.Item>
-
+              <Form.Item<FieldType>
+                label="Password"
+                name="password"
+                rules={[{ required: true, message: 'Por favor ingrese contraseña!' }]}
+                validateTrigger="onBlur"
+              >
+                <Input.Password placeholder="****" />
+              </Form.Item>
+            </Spin>
             <Form.Item label={null}>
               <Button
                 type="primary"
@@ -78,6 +79,8 @@ export const Signin = () => {
               </Button>
             </Form.Item>
           </Form>
-        </Card></Col></Row>
+        </Card>
+      </Col>
+    </Row>
   );
 }

@@ -36,10 +36,6 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     sessionStorage.removeItem(STORAGE_KEY);
   };
 
-  if (loading) {
-    return <div>Loading...</div>; 
-  }
-
   return (
     <AuthContext.Provider
       value={{
