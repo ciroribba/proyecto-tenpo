@@ -68,15 +68,28 @@ La aplicación utiliza una arquitectura moderna con React y está organizada de 
 
 ## Funcionalidades Principales
 
-El proyecto cuenta con dos páginas principales:
+El proyecto cuenta con tres páginas:
 
-### 1. Tabla de Personajes Disney
+### 1. Página de Inicio (Home)
+- Proporciona una visión general del proyecto y sus funcionalidades principales
+- Describe detalladamente las dos interfaces principales:
+  - Tabla de Personajes Disney: Explica la estructura y características de la tabla con 2000 registros fijos
+  - Lista de Usuarios: Detalla el funcionamiento del scroll infinito y la carga bajo demanda
+- Incluye información técnica detallada sobre cada interfaz:
+  - Características de implementación
+  - Elementos de UI y su disposición
+  - Comportamiento responsive
+- Proporciona documentación sobre las APIs utilizadas:
+  - Disney API: Detalles de endpoint y funcionalidad
+  - Random User API: Especificaciones de uso y parámetros
+
+### 2. Tabla de Personajes Disney
 - Muestra una tabla interactiva con personajes del universo Disney
 - Incluye avatar, nombre, película y enlace a Fandom Page
 - Implementa paginación y búsqueda
 - Utiliza la API de Disney para obtener los datos
 
-### 2. Lista de Usuarios
+### 3. Lista de Usuarios
 - Presenta una lista virtualizada de usuarios
 - Muestra información detallada: avatar, nombre, email, país, fecha de nacimiento y edad
 - Diseño responsive que se adapta a dispositivos móviles y desktop
