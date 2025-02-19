@@ -75,7 +75,7 @@ export const Signin = () => {
                 loading={loading}
                 block
               >
-                {loading ? 'Iniciando sesión...' : 'Iniciar Sesión'}
+                {loading ? 'Iniciando Sesión...' : 'Iniciar Sesión'}
               </Button>
             </Form.Item>
           </Form>
